@@ -148,18 +148,34 @@ function tableFilter(tdata) {
   var fvalue=filterData
   var fkey=filterKey
 
-  for (i=0;i<filtervalarray.length;i++){
-    console.log(filtervalarray[i].split(" : ")[0])
-    console.log("----")
-    console.log(filtervalarray[i].split(" : ")[1])
 
-  }
 
   Object.entries(tdata).forEach(([key, value]) => {
-    if (filtervalarray.length == 0)
-    if (key==fkey) {
-      if (value == fvalue){
+    if (filtervalarray.length > 0){
+
+      for (i=0;i<filtervalarray.length;i++){
+        gkey=filtervalarray[i].split(" : ")[0];
+        gvalue=filtervalarray[i].split(" : ")[1];
+        // if ( gkey ==fkey ){
+        //
+        //   if ((key == gkey) && (key==fkey)){
+        //     if (value == gvalue){
+        //       filteredOutput.push(tdata)
+        //     }
+        //   }
+        //
+        // }
+
+
+
+      }
+
+      if (key==fkey) {
+        if (value == fvalue){
         filteredOutput.push(tdata)
+        console.log(gkey)
+        console.log("----")
+        console.log(gvalue)
     }}
   }
   });
