@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: Alegreya, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+th{
+ text-transform: uppercase;
+}
+th.thlabel{
+  fill: none;
+  stroke: blue;
+  stroke-width:1;
+  text-transform: uppercase;
+  color:lightblue;
+  font-size: 20px;
+}
+.presence-select-label{
+
+  font-size: 15px;
+  color:white;
+  text-transform: uppercase;
+  padding: 5px;
+  margin: 5px;
+  width: 45%;
+
+}
+.presence-cols
+{
+  padding: 5px;
+  margin: 10px;
+  width: 100%;
+  border: 2px solid grey;
+  border-radius: 2px;
+  background: #465366;
+}
+.presence-select{
+  padding: 5px
+  box-sizing: border-box;
+  width: 45%;
+  background-color: lightblue;
+
+}
