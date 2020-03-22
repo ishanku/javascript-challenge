@@ -44,20 +44,17 @@ function buildTableHeader(tDataHead,tData){
     var optionhtml = '<option value="'+ key  +'">  --' +  key + '--  </option>'
     var selecthtml='<select class="form-control form-control-sm" d="select-key-'+ key +'" name="select-'+ key +'">'+ optionhtml +'</select>'
 
-    //var label = divselect.append("label").attr("id","label-" + key).attr("for","select-key" + key).text(key);
-    //var selectoption = divselect .append('select').attr("class","form-control").attr("id","select-"+key);
-    var quotesmanager="'"+'"'+"'"
     if (odd==true){
 
       divrow = divselect.append('div').attr("class","row");
       divcols = divrow.append('div').attr("class","col presence-cols")
-      functionText.push("d3.select('#select-"+ key+ "').on('change', function() {\nconsole.clear();\nfiltervalarray=[];\nfilterKey = '"+ key+ "';\nfilterData = d3.select(this).property('value');\nalert(filterData);\nvar i;\nfor (i=0 ;i < headerarray.length ; i ++){ var fvalue=d3.select("+"'"+"#select-"+"'"+"+headerarray[i]).property('value');\nif (!!fvalue){filtervalarray.push(headerarray[i]+' : '+fvalue);alert(headerarray[i]+' : '+fvalue);}\n };\nfilteredOutput = [];\nhandleBuild();\n//tableData.filter(tableFilter);\n//buildTable(filteredOutput);\n});\n")
+      functionText.push("d3.select('#select-"+ key+ "').on('change', function() {\nconsole.clear();\nfiltervalarray=[];\nfilterKey = '"+ key+ "';\nfilterData = d3.select(this).property('value');\nalert(filterData);\nvar i;\nfor (i=0 ;i < headerarray.length ; i ++){ var fvalue=d3.select("+"'"+"#select-"+"'"+"+headerarray[i]).property('value');\nif (!!fvalue){filtervalarray.push(headerarray[i]+' : '+fvalue);}\n };\nfilteredOutput = [];\nhandleBuild();\n//tableData.filter(tableFilter);\n//buildTable(filteredOutput);\n});\n")
 
     }
     else{
 
       divcols = divrow.append('div').attr("class","col presence-cols")
-      functionText.push("d3.select('#select-"+ key+ "').on('change', function() {\nfiltervalarray=[];\nfilterKey = '"+ key+ "';\nfilterData = d3.select(this).property('value');\nalert(filterData);\nvar i;\nfor(i=0 ; i < headerarray.length ; i ++){ var fvalue=d3.select("+"'"+"#select-"+"'"+"+headerarray[i]).property('value');\nif (!!fvalue){filtervalarray.push(headerarray[i]+' : '+fvalue);alert(headerarray[i]+' : '+fvalue);}\n  };\nfilteredOutput = [];\nhandleBuild();\n//tableData.filter(tableFilter);\n//buildTable(filteredOutput);\n});\n")
+      functionText.push("d3.select('#select-"+ key+ "').on('change', function() {\nconsole.clear();\nfiltervalarray=[];\nfilterKey = '"+ key+ "';\nfilterData = d3.select(this).property('value');\nalert(filterData);\nvar i;\nfor(i=0 ; i < headerarray.length ; i ++){ var fvalue=d3.select("+"'"+"#select-"+"'"+"+headerarray[i]).property('value');\nif (!!fvalue){filtervalarray.push(headerarray[i]+' : '+fvalue);}\n  };\nfilteredOutput = [];\nhandleBuild();\n//tableData.filter(tableFilter);\n//buildTable(filteredOutput);\n});\n")
 
     }
     var label = divcols.append("label").attr("id","label-" + key).attr("for","select-key" + key).attr("class","presence-select-label").text(key);
