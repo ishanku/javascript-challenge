@@ -12,19 +12,16 @@ var filtervalarray=[]
 var filteredOutput = []
 getHeaders(tableData[0]);
 
-//COLLECT THE HEADERS (KEY) IN THE INPUT DATA
 function getHeaders(tData)
 {
   Object.keys(tData).forEach((key) => {
   headerarray.push(key);
   });
 }
-//PAGE LOAD EXECUTION
-
 buildTableHeader(tableData[0],tableData)
 buildTable(tableData)
 
-//BUILD HEADER (INCLUDES DYNAMIC UNIQUE VALUE DROPDOWN MENU BUILD)
+
 function buildTableHeader(tDataHead,tData){
   d3.select("#filterdrop").remove();
 
@@ -128,28 +125,6 @@ function handleBuild()
 buildTable(inputData);
 }
 
-
-
-// FILTER FUNCTION
-function tableFilter(tdata) {
-      var output="null"
-
-
-      var fvalue=filterData
-      var fkey=filterKey
-
-
-
-      Object.entries(tdata).forEach(([key, value]) => {
-
-        if (key==fkey) {
-          if (value == fvalue){
-          filteredOutput.push(tdata)
-        }}
-        });
-}
-
-//DYNAMIC TABLE BUILD
 function buildTable(fData){
   d3.select("#myTable").remove();
 
@@ -178,5 +153,26 @@ function buildTable(fData){
 
     });
   });
+  //d3.select(".rowcountdiv").text("Total Rows: " + rowcount)
+}
 
+
+
+
+function tableFilter(tdata) {
+      var output="null"
+
+
+      var fvalue=filterData
+      var fkey=filterKey
+
+
+
+      Object.entries(tdata).forEach(([key, value]) => {
+
+        if (key==fkey) {
+          if (value == fvalue){
+          filteredOutput.push(tdata)
+        }}
+        });
 }
