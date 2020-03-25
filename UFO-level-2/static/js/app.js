@@ -92,61 +92,75 @@ d3.select(".rowcountdiv").text("Total Rows: " + tData.length)
 
 
 d3.select("#select-datetime").on('change',function () {
-  findkey="datetime"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+
+  collectValues();
   myOnChange();
 });
 d3.select("#select-city").on('change',function () {
-  findkey="city"
-  findvalue=d3.select(this).property('value');
-fkeyvalue.push(findkey+" : "+findvalue)
+
+collectValues()
+myOnChange();
 });
 d3.select("#select-state").on('change',function () {
-  findkey="state"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+collectValues()
 myOnChange();
 });
 d3.select("#select-country").on('change',function () {
-  findkey="country"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+collectValues()
 myOnChange();
 });
 d3.select("#select-shape").on('change',function () {
-  findkey="shape"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+  collectValues()
 myOnChange();
 });
 d3.select("#select-durationminutes").on('change',function () {
-  findkey="durationminutes"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+  collectValues()
 myOnChange();
 });
 d3.select("#select-comments").on('change',function () {
-  findkey="comments"
-  findvalue=d3.select(this).property('value');
-  fkeyvalue.push(findkey+" : "+findvalue);
+  collectValues()
 myOnChange();
 });
-function myOnChange(){
-  newtable=[];
-  console.log(fkeyvalue);
-  for (i=0;i<fkeyvalue.length;i++){
-    findkey=fkeyvalue[i].split(" : ")[0];
-    findvalue=fkeyvalue[i].split(" : ")[1];
 
-    filterTable(tableData,findkey,finddate);
-    buildTable(newtable);
-  }
+function collectValues(){
+  fkeyvalue=[]
+  findkey="datetime"
+  findvalue=d3.select('#select-datetime').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="city"
+  findvalue=d3.select('#select-city').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="state"
+  findvalue=d3.select('#select-state').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="country"
+  findvalue=d3.select('#select-country').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="shape"
+  findvalue=d3.select('#select-shape').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="durationMinutes"
+  findvalue=d3.select('#select-durationMinutes').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
+  findkey="comments"
+  findvalue=d3.select('#select-comments').property('value');
+  if (!/^--/.test(findvalue)){fkeyvalue.push(findkey+" : "+findvalue);};
 
 }
 
-function filterTable(tData,findkey,findvalue){
+function myOnChange(){
+  storedData=tableData
+   for (i=0;i<fkeyvalue.length;i++){
+     findkey=fkeyvalue[i].split(" : ")[0];
+     findvalue=fkeyvalue[i].split(" : ")[1];
+     filterTable(storedData,findkey,findvalue);
+    }
+   buildTable(newtable);
+}
 
+function filterTable(tData,findkey,findvalue){
+  storedData=newtable;
+  newtable=[];
   tData.forEach((item, i) => {
     Object.entries(item).forEach(([key,value]) => {
       if(key == findkey){
