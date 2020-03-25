@@ -15,10 +15,10 @@
 
 <div class="collapse navbar-collapse" id="navbarNav">
    <ul class="nav navbar-nav">
-      <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item active"><a class="nav-link" href="/index.html">Home</a></li>
       <li class="nav-item"><a class="nav-link" href="random.html">Examine Here</a></li>
-      <li class="nav-item"><a class="nav-link" href="./UFO-level-1/index.html">UFO Level 1</a></li>
-      <li class="nav-item"><a class="nav-link" href="./UFO-level-2/index.html">UFO Level 2</a></li>
+      <li class="nav-item"><a class="nav-link" href="/UFO-level-1/index.html">UFO Level 1</a></li>
+      <li class="nav-item"><a class="nav-link" href="/UFO-level-2/index.html">UFO Level 2</a></li>
     </ul>
 </div>
 </div>
@@ -36,11 +36,10 @@
 
 <div class="container-fluid">
   <div class="jumbotron presence-filter-section">
-  <form id="myDynamicForm" class="form-horizontal">
-  <div id="myDynamicFilterTable" class="myDynamicFilterTable">
-	</div>
-  </form>
+    <h2>Table Data Ufo Sightings</h2>
+    <p class="lead">Date Filter Can be used in UFO - Level 1</p>
   </div>
+  <div id="myData" class="myData">
   <div class="myright">
     <form>
         <input type="text" placeholder="1/1/2020" name="dateInput" id="dateInput">
@@ -48,8 +47,9 @@
     </form>
   </div>
   <div class="rowcountdiv"></div>
-  <div id="myDynamicTable">
+  <div id="myDynamicTable" class="myDynamicTable">
 	</div>
+</div>
 </div>
 
 <script src="static/js/data.js"></script>

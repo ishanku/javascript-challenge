@@ -92,12 +92,7 @@ function buildTableHeader(tDataHead,tData){
         });
         }
       });});
-      if (odd==true){
-        odd=false;
-      }
-      else{
-        odd=true;
-      }
+
 
     });
     }

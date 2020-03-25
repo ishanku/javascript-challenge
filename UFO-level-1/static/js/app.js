@@ -29,6 +29,7 @@ function buildTable(tData){
 
   var tbody = table.append('tbody');
 
+
 tData.forEach((item) => {
     var row = tbody.append('tr');
 
@@ -36,7 +37,10 @@ tData.forEach((item) => {
       row.append('td').text(value);
     });
 
+
 });
+d3.select(".rowcountdiv").text("Total Rows: " + tData.length)
+}
 
 d3.select("#DateSubmit").on('click', function(){
   var finddate=d3.select("#dateInput").property('value');
@@ -54,8 +58,4 @@ function filterTable(tData,findkey,findvalue){
           newtable.push(item);}}
     });
   });
-}
-
-  //d3.select(".rowcountdiv").text("Total Rows: " + fData.length)
-
 }
