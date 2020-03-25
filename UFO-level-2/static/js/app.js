@@ -2,6 +2,9 @@
 var tableData=data;
 var headers=[];
 var newtable=[];
+var findkey="";
+var findvalue="";
+var fkeyvalue=[]
 var odd=true;
 
 getHeaders(tableData[0]);
@@ -87,15 +90,59 @@ tData.forEach((item) => {
 d3.select(".rowcountdiv").text("Total Rows: " + tData.length)
 }
 
-d3.selectAll("#select-datetime").on('change', myOnChange());
-d3.selectAll("#select-city").on('change', myOnChange());
 
+d3.select("#select-datetime").on('change',function () {
+  findkey="datetime"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+  myOnChange();
+});
+d3.select("#select-city").on('change',function () {
+  findkey="city"
+  findvalue=d3.select(this).property('value');
+fkeyvalue.push(findkey+" : "+findvalue)
+});
+d3.select("#select-state").on('change',function () {
+  findkey="state"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+myOnChange();
+});
+d3.select("#select-country").on('change',function () {
+  findkey="country"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+myOnChange();
+});
+d3.select("#select-shape").on('change',function () {
+  findkey="shape"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+myOnChange();
+});
+d3.select("#select-durationminutes").on('change',function () {
+  findkey="durationminutes"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+myOnChange();
+});
+d3.select("#select-comments").on('change',function () {
+  findkey="comments"
+  findvalue=d3.select(this).property('value');
+  fkeyvalue.push(findkey+" : "+findvalue);
+myOnChange();
+});
 function myOnChange(){
-alert("Hi")
- // var finddate=d3.select("#dateInput").property('value');
- // newtable=[];
- // filterTable(tableData,"datetime",finddate);
- // buildTable(newtable);
+  newtable=[];
+  console.log(fkeyvalue);
+  for (i=0;i<fkeyvalue.length;i++){
+    findkey=fkeyvalue[i].split(" : ")[0];
+    findvalue=fkeyvalue[i].split(" : ")[1];
+
+    filterTable(tableData,findkey,finddate);
+    buildTable(newtable);
+  }
+
 }
 
 function filterTable(tData,findkey,findvalue){
